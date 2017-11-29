@@ -1,0 +1,16 @@
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\bin\Debug\LidarSync.exe.config
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\bin\Debug\LidarSync.exe
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\bin\Debug\LidarSync.pdb
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.csprojResolveAssemblyReference.cache
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.Form1.resources
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.Properties.Resources.resources
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.csproj.GenerateResource.Cache
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.exe
+c:\users\chang-pc\documents\visual studio 2015\Projects\LidarSync\LidarSync\obj\Debug\LidarSync.pdb
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.csprojResolveAssemblyReference.cache
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.Form1.resources
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.Properties.Resources.resources
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.csproj.GenerateResource.Cache
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.csproj.CoreCompileInputs.cache
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.exe
+H:\Arquivos\LidarSync\LidarSync\obj\Debug\LidarSync.pdb
