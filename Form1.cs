@@ -15,11 +15,11 @@ namespace LidarSync
         string[] frames;
         string path_apx, all_frames;
         int total_frames;
- 
+
         public Form1()
         {
             InitializeComponent();
-  
+
         }
 
         private void button_load_folder_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace LidarSync
             OpenFileDialog diag = new OpenFileDialog();
             diag.Filter = "Txt file| *.txt";
             diag.ShowDialog();
-            if(diag.CheckFileExists)
+            if (diag.CheckFileExists)
             {
                 textBox_path_apx.Text = diag.FileName;
                 this.path_apx = Convert.ToString(textBox_path_apx.Text);
@@ -59,7 +59,7 @@ namespace LidarSync
             saved.DefaultExt = ".csv";
             saved.ShowDialog();
 
-            if(saved.FileName ==  "")
+            if (saved.FileName == "")
             {
                 return;
             }
@@ -77,7 +77,7 @@ namespace LidarSync
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             this.total_frames = frames.Length;
-            int once=0;
+            int once = 0;
             string newLine;
 
             var fileApx = File.OpenRead(path_apx);
@@ -107,12 +107,12 @@ namespace LidarSync
                     if (once == 0)
                     {
                         //do the first line of file
-                        newLine = "X,Y,Z,GPS TIME,EASTING,NORTHING,ELLIPSOID HEIGHT,PITCH,ROLL,HEADING";
+                        newLine = "X,Y,Z,GPS TIME,LATITUDE,LONGITUDE,EASTING,NORTHING,ELLIPSOID HEIGHT,PITCH,ROLL,HEADING";
                         writer.WriteLine(newLine);
                         once++;
                     }
 
-                    while (Convert.ToDouble(valuesApx[0]) < (Convert.ToDouble(valuesFrame[10])/10))
+                    while (Convert.ToDouble(valuesApx[0]) < (Convert.ToDouble(valuesFrame[10]) / 10) + 600000000)
                     {
                         lineApx = readerApx.ReadLine();
                         valuesApx = lineApx.Split(',');
@@ -120,36 +120,36 @@ namespace LidarSync
                     for (int j = 1; j < fileFrames.Length; j++)
                     {
                         var temp = fileFrames[j].Split(',');
-                        newLine = temp[3] + ',' + temp[4] + ',' + temp[5] + ',' + 
-                                valuesApx[0] + ',' + valuesApx[2] + ',' + valuesApx[3] + ',' + 
-                                valuesApx[4] + ',' + valuesApx[5] + ',' + valuesApx[6] + ',' + valuesApx[7];
-
+                        newLine = temp[3] + ',' + temp[4] + ',' + temp[5] + ',' +
+                                valuesApx[0] + ',' + valuesApx[2] + ',' + valuesApx[3] + ',' +
+                                valuesApx[4] + ',' + valuesApx[5] + ',' + valuesApx[6] + ',' +
+                                valuesApx[7] + ',' + valuesApx[8] + ',' + valuesApx[9];
                         writer.WriteLine(newLine);
-                    }                   
+                    }
                     backgroundWorker.ReportProgress(i);
                 }
             }
             readerApx.Close();
-            writer.Close();             
+            writer.Close();
         }
 
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar.Maximum = total_frames-1;
+            progressBar.Maximum = total_frames - 1;
             progressBar.Value = e.ProgressPercentage;
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {          
+        {
             if (e.Cancelled)
-            {                
+            {
                 MessageBox.Show("Cancelled");
             }
             else
             {
                 MessageBox.Show("Complete");
                 progressBar.Value = 0;
-            }            
+            }
         }
     }
 }
